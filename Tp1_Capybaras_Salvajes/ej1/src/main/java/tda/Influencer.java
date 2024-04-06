@@ -1,5 +1,3 @@
-package tda.capybaras.salvajes;
-
 import java.util.List;
 
 public class Influencer implements Comparable{
