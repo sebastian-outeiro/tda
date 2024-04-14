@@ -9,9 +9,11 @@ public class Main {
         }
         Parser rawData = new Parser(args[0]);
         Campaign campaign = new Campaign();
+        long start = System.currentTimeMillis();
         Solution solution = campaign.solve(rawData.getInfluencers());
+        long end = System.currentTimeMillis();
+        System.out.println("Solución encontrada en: " + (end - start) + " milisegundos.");
         solution.print();
-
     }
 
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Campaign {
 
+    private Solution bestSolution;
+
     public Solution solve(List<Influencer> influencers) {
         List<Influencer> influencersOrdered = influencers.stream()
                 .sorted().toList();
@@ -13,7 +15,8 @@ public class Campaign {
     private Solution backtrack(Solution solution, List<Influencer> influencers, Integer position) {
         if (position >= influencers.size())
             return solution;
-        Solution bestSolution = solution;
+        if (bestSolution == null || solution.getMarketPenetration() > bestSolution.getMarketPenetration())
+            bestSolution = solution;
         Influencer actualInfluencer = influencers.get(position);
 
         if (solution.canAddInfluencer(actualInfluencer)) {

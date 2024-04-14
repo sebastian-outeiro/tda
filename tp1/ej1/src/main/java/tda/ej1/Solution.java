@@ -49,7 +49,6 @@ public class Solution {
 
 
     public void print(){
-        System.out.println("Solution Found");
         System.out.println("Total Market Penetration = " + marketPenetration + ". IDs influencers discarded = " + influencersDiscarded);
         System.out.println("Influencers included order by market penetration: ");
         influencers.forEach(System.out::println);
