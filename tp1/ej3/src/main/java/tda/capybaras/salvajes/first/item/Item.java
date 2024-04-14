@@ -1,4 +1,4 @@
-package tda.capybaras.salvajes.item;
+package tda.capybaras.salvajes.first.item;
 
 public interface Item {
     String print();

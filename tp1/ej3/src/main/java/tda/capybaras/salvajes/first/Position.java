@@ -1,4 +1,4 @@
-package tda.capybaras.salvajes;
+package tda.capybaras.salvajes.first;
 
 public record Position(Integer x, Integer y) {
     public static Position min(Position first, Position second) {

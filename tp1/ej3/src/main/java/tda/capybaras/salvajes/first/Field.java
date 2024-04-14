@@ -1,7 +1,7 @@
-package tda.capybaras.salvajes;
+package tda.capybaras.salvajes.first;
 
-import tda.capybaras.salvajes.item.Region;
-import tda.capybaras.salvajes.item.Silo;
+import tda.capybaras.salvajes.first.item.Region;
+import tda.capybaras.salvajes.first.item.Silo;
 
 import java.util.HashMap;
 import java.util.List;

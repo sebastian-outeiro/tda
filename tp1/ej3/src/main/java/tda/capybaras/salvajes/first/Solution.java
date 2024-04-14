@@ -1,4 +1,4 @@
-package tda.capybaras.salvajes;
+package tda.capybaras.salvajes.first;
 
 import java.util.ArrayList;
 import java.util.Comparator;
