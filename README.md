@@ -1,18 +1,40 @@
-# tda
+# TDA - Grupo Capybaras salvajes
 2024 1° Cuatrimestre - TDA - Capybaras salvajes
 
-Version de java 22 2024-03-19, build 22+36-2370
+## Introducción
 
-Para correr el tp hay que seguir los siguientes pasos:
+(Requerido) Java Version: Java 17
+(Opcional) Maven - Versión: Apache Maven 3.8.1 
 
-1) Ir a la carpeta donde esta contenido el Main.java
-   
-.../tda/Tp1_Capybaras_Salvajes/ej1/src/main/java/tda
+## Ej 1 
 
-2) Abrir una consola en la ubicacion y ejecutar el comando
+### Ejecución - JAR
 
-   javac Main.java
+1°) Ir a la carpeta:  /tp1/ej1
 
-3) Ejecutar el archivo creado (el archivo ejemplo.txt posee el ejemplo del trabajo practico)
+2°) Abrir una consola en la ubicacion y ejecutar el comando
 
-  java Main.class ejemplo.txt
+   java -jar ej1.jar <archivo>
+
+3°) Ejemplos
+
+  java -jar ej1.jar ejemplo.txt
+
+
+### Compilación - JAR
+
+En caso de que sea requerido re-compilar el JAR se pueden seguir los siguientes pasos:
+
+1°) Ir a la carpeta:  /tp1/ej1
+
+2°) Compilar con maven:
+
+   mvn compile
+
+3°) Armar el package con maven
+
+  mvn package
+
+4°) El .jar ejecutable se creara en la carpeta /target. Se podria ejecutar el mismo con el siguiente comando:
+
+	java -jar target/*.jar ejemplo.txt
