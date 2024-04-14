@@ -1,20 +1,19 @@
-import java.util.List;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package tda.ej1;
 
 public class Main {
     public static void main(String[] args) {
 
-        if (args.length !=1){
+        if (args.length != 1) {
             System.out.println("Por favor, proporciona solamente la ruta del archivo como argumento");
             return;
         }
-        Parser rawData= new Parser(args[0]);
+        Parser rawData = new Parser(args[0]);
         Campaign campaign = new Campaign();
+        long start = System.currentTimeMillis();
         Solution solution = campaign.solve(rawData.getInfluencers());
-        System.out.println(solution);
-
+        long end = System.currentTimeMillis();
+        System.out.println("Solución encontrada en: " + (end - start) + " milisegundos.");
+        solution.print();
     }
 
 }
