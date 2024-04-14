@@ -1,8 +1,6 @@
-package tda.capybaras.salvajes.second;
+package tda.capybaras.salvajes.multiple;
 
-import java.math.BigDecimal;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public record Position(Integer x, Integer y) {
     public static Position of(Integer x, Integer y) {

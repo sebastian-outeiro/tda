@@ -1,4 +1,4 @@
-package tda.capybaras.salvajes.second;
+package tda.capybaras.salvajes.multiple;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class FieldBuilder {
 
     private final Integer size;
-    Set<Position> allSilos;
+    private final Set<Position> allSilos;
 
     public FieldBuilder(Set<Position> allSilos, Integer size) {
         this.allSilos = allSilos;
@@ -19,6 +19,8 @@ public class FieldBuilder {
 
     public Field solve() {
         List<Field> fields = buildFields(Position.of(0, 0), Position.of(size - 1, size - 1));
+        if(fields.size() == 0)
+            throw new RuntimeException("No solution was found");
         return fields.get(0);
     }
 
@@ -50,7 +52,9 @@ public class FieldBuilder {
                     reachMaxRegions = true;
                 }
                 else
-                    results.addAll(this.reduceEmptySpaces(newField, first.end.min(second.start), first.end.max(second.start)));
+                    results.addAll(this.reduceEmptySpaces(newField,
+                            first.getEnd().min(second.getStart()),
+                            first.getEnd().max(second.getStart())));
             }
         return results;
     }

@@ -1,4 +1,4 @@
-package tda.capybaras.salvajes.second;
+package tda.capybaras.salvajes.multiple;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class Field {
-    Position start;
-    Position end;
-    Set<Position> silos = new HashSet<>();
-    Map<Position, Region> regions = new HashMap<>();
+    private final Position start;
+    private final Position end;
+    private final Set<Position> silos = new HashSet<>();
+    private final Map<Position, Region> regions = new HashMap<>();
 
     public Field(Position start, Position end) {
         this.start = start;
@@ -72,32 +72,36 @@ public class Field {
         return newField;
     }
 
+    public Position getStart() {
+        return start;
+    }
+
+    public Position getEnd() {
+        return end;
+    }
+
     public void print() {
         System.out.println("Regions: " + regionsSize());
-        System.out.print("  ");
-        for (int x = start.x(); x < end.x(); x++)
-            System.out.print(" | " + x);
-        System.out.print(" |");
+        customPrint("");
+        for (int x = start.x(); x <= end.x(); x++)
+            customPrint(String.valueOf(x));
         System.out.println();
-        Integer actualId = 0;
-        Map<Region, Integer> ids = new HashMap<>();
-        for (int y = start.y(); y < end.y(); y++) {
-            System.out.print(y + " ");
-            for (int x = start.x(); x < end.x(); x++) {
+        for (int y = start.y(); y <= end.y(); y++) {
+            customPrint(String.valueOf(y));
+            for (int x = start.x(); x <= end.x(); x++) {
                 Position actual = Position.of(x,y);
-                if(regions.containsKey(actual)){
-                    Region actualRegion = regions.get(actual);
-                    if(!ids.containsKey(actualRegion)){
-                        actualId++;
-                        ids.put(actualRegion, actualId);
-                    }
-                    System.out.print(" | R" + ids.get(actualRegion));
-                } else if (silos.contains(actual)){
-                    System.out.print(" | S  ");
-                } else
-                    System.out.print(" | X  ");
+                printPosition(actual);
             }
             System.out.println();
         }
+    }
+
+    private void printPosition(Position pos){
+        String value = regions.containsKey(pos) ? "R" + regions.get(pos).getId() : silos.contains(pos) ? "S" : "X";
+        customPrint(value);
+    }
+
+    private void customPrint(String value){
+        System.out.printf("%1$5s", value);
     }
 }
