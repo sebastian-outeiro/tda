@@ -3,7 +3,6 @@ package tda.capybaras.salvajes;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 public class Solution {
     public Field solve(Integer size, List<Position> silos) {
@@ -17,28 +16,26 @@ public class Solution {
         if (totalSize == 4)
             return createBasicResponse(baseField, init, end);
         Position firstEnd, secondInit;
-        Position midNext;
         if (end.x() - init.x() > end.y() - init.y()){
-            firstEnd = new Position(end.x() / 2, end.y());
-            secondInit = new Position(end.x() / 2 + 1, init.y());
-            midNext = new Position(0,1);
-        } else{
-            firstEnd = new Position(end.x(), end.y() / 2);
-            secondInit = new Position(init.x(),end.y() / 2 + 1);
-            midNext = new Position(1,0);
+            Integer x = (end.x() - init.x() + 1) / 2 + init.x();
+            firstEnd = new Position(x - 1, end.y());
+            secondInit = new Position(x, init.y());
+        } else {
+            Integer y = (end.y() - init.y() + 1) / 2 + init.y();
+            firstEnd = new Position(end.x(), y - 1);
+            secondInit = new Position(init.x(), y);
         }
         List<Field> first = createFields(baseField, init, firstEnd);
         List<Field> second = createFields(baseField, secondInit, end);
 
-        return this.join(first, second, totalSize, Position.min(firstEnd, secondInit), firstEnd, midNext);
+        return this.join(first, second, totalSize, Position.min(firstEnd, secondInit), Position.max(firstEnd, secondInit));
     }
 
     private List<Field> join(List<Field> firstHalf,
                              List<Field> secondHalf,
                              Integer totalSize,
                              Position midStart,
-                             Position midEnd,
-                             Position midNext) {
+                             Position midEnd) {
         List<Field> result = new ArrayList<>();
         for (Field first: firstHalf){
             for (Field second: secondHalf){
@@ -47,37 +44,83 @@ public class Solution {
                 if(newField.getRegions().equals(maxRegions))
                     result.add(newField);
                 else
-                    result.addAll(this.joinCompletingEmptySpaces(newField, midStart, midEnd, midNext));
+                    result.addAll(this.joinCompletingEmptySpaces(newField, midStart, midEnd));
             }
         }
         return result;
     }
 
-    private List<Field> joinCompletingEmptySpaces(Field newField, Position midStart, Position midEnd, Position midNext) {
-        boolean beforeFree = false;
-        boolean downBeforeFree = false;
-        boolean end = false;
-        Position actual = midStart;
-        while(!end){
-            if(newField.isPositionFree(actual)){
-
-            }
+    private List<Field> joinCompletingEmptySpaces(Field newField, Position midStart, Position midEnd) {
+        List<Field> results = new ArrayList<>();
+        Position next = new Position(0, 1);
+        Position zone = new Position(1,1);
+        if (midEnd.x() - midStart.x() != 1)
+            next = new Position(1,0);
+        Position actualInit = midStart;
+        Position actualEnd;
+        do {
+            actualEnd = actualInit.plus(zone);
+            List<List<Position>> newRegions = createBasicRegions(actualInit, actualEnd);
+            newRegions.forEach(region -> {
+                if(newField.isRegionFree(region))
+                    results.add(newField.copyAdding(region));
+            });
+            actualInit = actualInit.plus(next);
+        } while (!actualEnd.equals(midEnd));
+        return results;
+    }
+/**
+    private List<Field> joinCompletingEmptySpaces(Field newField, Position midStart, Position midEnd) {
+        List<Field> results = new ArrayList<>();
+        Position next = new Position(0, 1);
+        Position against = new Position(1, 0);
+        if (midEnd.x() - midStart.x() != 1) {
+            Position aux = next;
+            next = against;
+            against = aux;
         }
+        Position last = midEnd.minus(against).plus(next);
+        Position actual = midStart;
+        boolean againstFree, beforeFree = false;
+        while(!actual.equals(last)){
+            if(newField.isPositionFree(actual)){
+                beforeFree = true;
+                Position localAgainst = actual.plus(against);
+                if(newField.isPositionFree(localAgainst)){
+                    againstFree = true;
+                    Position beforeAgainst = localAgainst.minus(next);
+                    if(!actual.equals(midStart) && newField.isPositionFree(beforeAgainst)){
+                        results.add(newField.copyAdding(List.of(beforeAgainst, localAgainst, actual)));
+                    }
+                } else
+                    againstFree = false;
+            } else {
+                beforeFree = false;
+                againstFree = false;
+            }
+
+            actual = actual.plus(next);
+        }
+
+    }
+**/
+    private List<Field> createBasicResponse(Field baseField, Position init, Position end) {
+        List<List<Position>> newRegions = createBasicRegions(init, end);
+        return newRegions.stream()
+                .filter(baseField::isRegionFree)
+                .map(baseField::copyAdding)
+                .toList();
     }
 
-    private List<Field> createBasicResponse(Field baseField, Position init, Position end) {
+    private static List<List<Position>> createBasicRegions(Position init, Position end) {
         Position plusX = init.plus(1, 0);
         Position plusY = init.plus(0, 1);
-        List<List<Position>> newRegions = List.of(
+        return List.of(
                 List.of(init, plusX, plusY),
                 List.of(init, plusX, end),
                 List.of(init, plusY, end),
                 List.of(plusX, plusY, end)
         );
-        return newRegions.stream()
-                .filter(baseField::isRegionFree)
-                .map(baseField::copyAdding)
-                .toList();
     }
 
     private Integer sizeBetween(Position init, Position end) {

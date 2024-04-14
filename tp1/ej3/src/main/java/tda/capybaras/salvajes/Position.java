@@ -1,6 +1,6 @@
 package tda.capybaras.salvajes;
 
-public record Position (Integer x, Integer y){
+public record Position(Integer x, Integer y) {
     public static Position min(Position first, Position second) {
         return new Position(Integer.min(first.x(), second.x()),
                 Integer.min(first.y(), second.y()));
@@ -17,5 +17,9 @@ public record Position (Integer x, Integer y){
 
     public Position plus(Position delta) {
         return this.plus(delta.x, delta.y);
+    }
+
+    public Position minus(Position op) {
+        return new Position(x - op.x, y - op.y);
     }
 }
