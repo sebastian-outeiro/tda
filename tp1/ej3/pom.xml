@@ -23,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>tda.Main</mainClass>
+                            <mainClass>tda.ej3.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

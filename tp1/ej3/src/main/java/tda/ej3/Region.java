@@ -1,4 +1,4 @@
-package tda;
+package tda.ej3;
 
 public class Region {
     private String contenido;
