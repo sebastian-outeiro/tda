@@ -20,17 +20,27 @@ public class Campo {
     }
 
     public void mostrarSilo (){
-        System.out.println("el silo esta en (" + silo.getFil() + "," + silo.getCol() + ") " +regiones[silo.getFil()][silo.getCol()].getContenido());
+        System.out.println("El silo esta en (" + silo.getFil() + "," + silo.getCol() + ") " +regiones[silo.getFil()][silo.getCol()].getContenido());
     }
 
     public void mostrarCampo () {
+        imprimir("Campo ");
+        for (int col=0;col<this.extension;col++)
+            imprimir("|  " + col + "  |");
+        System.out.println();
         for (int fila=0;fila<this.extension;fila++){
+            imprimir(fila + "   ");
             for (int col=0;col<this.extension;col++){
-                System.out.print("|" + regiones[fila][col].getContenido() + "| ");
+                imprimir("|" + regiones[fila][col].getContenido() + "| ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
+
+    private void imprimir(String value) {
+        System.out.printf("%1$10s", value);
+    }
+
     public void mostrarCantidadRegiones(){
         System.out.println("Se generaron: "+ (this.lColocadas-1)+" Regiones");
     }
