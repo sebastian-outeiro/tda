@@ -1,6 +1,10 @@
+package tda.ej1;
+
 import java.util.List;
 
 public class Campaign {
+
+    private Solution bestSolution;
 
     public Solution solve(List<Influencer> influencers) {
         List<Influencer> influencersOrdered = influencers.stream()
@@ -11,7 +15,8 @@ public class Campaign {
     private Solution backtrack(Solution solution, List<Influencer> influencers, Integer position) {
         if (position >= influencers.size())
             return solution;
-        Solution bestSolution = solution;
+        if (bestSolution == null || solution.getMarketPenetration() > bestSolution.getMarketPenetration())
+            bestSolution = solution;
         Influencer actualInfluencer = influencers.get(position);
 
         if (solution.canAddInfluencer(actualInfluencer)) {
@@ -36,7 +41,7 @@ public class Campaign {
         Integer remainInfluencers = influencers.size() - position - 1;
         Integer nextPenetration = 0;
         if (position + 1 <= influencers.size() - 1) {
-            nextPenetration = influencers.get(position + 1).getMarketPenetration();
+            nextPenetration = influencers.get(position + 1).marketPenetration();
         }
         return actualPenetration + remainInfluencers * nextPenetration;
     }
