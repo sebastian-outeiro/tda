@@ -1,4 +1,4 @@
-package org.example;
+package tda;
 
 public class Coordenadas {
     public int x;

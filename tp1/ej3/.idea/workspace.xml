@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc3afe9d-02bf-4737-84a1-2df1062a1f59" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ej3-version1 silo/src/main/java/org/example/Agrimensor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ej3-version1 silo/src/main/java/org/example/Campo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ej3-version1 silo/src/main/java/org/example/Coordenadas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ej3-version1 silo/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ej3-version1 silo/src/main/java/org/example/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/Field.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/FieldPrinter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/item/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/item/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tda/capybaras/salvajes/item/Silo.java" beforeDir="false" />
+    <list default="true" id="0e4186f9-4f6d-42de-9c34-6ec0d2a38039" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Agrimensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Campo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Coordenadas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Region.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +24,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="2f75s5g39MChGn6bnZWh6LKJJ6g" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2f76YP5CpX7kyOIfUTS3b5z8Jps" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,18 +42,44 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/sebastian-outeiro/GIT/Sebas/FIUBA/TDA/tda/tp1/ej3/src/main/java/tda"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/tda" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tda.Main" />
+      <module name="ej3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tda.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dc3afe9d-02bf-4737-84a1-2df1062a1f59" name="Changes" comment="" />
-      <created>1713139478457</created>
+      <changelist id="0e4186f9-4f6d-42de-9c34-6ec0d2a38039" name="Changes" comment="" />
+      <created>1713139815761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713139478457</updated>
-      <workItem from="1713139479598" duration="129000" />
+      <updated>1713139815761</updated>
+      <workItem from="1713139816917" duration="117000" />
     </task>
     <servers />
   </component>
